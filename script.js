@@ -50,7 +50,7 @@ function render(){
     <div class="shell">
       <div class="topbar">
         <div class="flower">🌸</div>
-        <div><h1>${BRAND_NAME} Invoice Maker</h1><p>Buat invoice cepat, riwayat tersimpan otomatis</p></div>
+        <div><h1>${BRAND_NAME} Invoice</h1><p>${esc(BRAND_SUB)}</p></div>
       </div>
       <div class="tabs">
         <button class="tab-btn ${tab==='create'?'active':''}" data-tab="create"><i data-lucide="file-plus-2"></i>Buat Invoice</button>
@@ -171,9 +171,12 @@ async function generateAndDownloadImage(inv){
     // beri jeda singkat agar font selesai dimuat sebelum di-screenshot
     if(document.fonts && document.fonts.ready) await document.fonts.ready;
     await new Promise(r=>setTimeout(r,80));
-    const targetWidth=1080; // cukup tajam untuk dibaca di HP maupun desktop, tapi file tetap ringan
-    const scale=targetWidth/760;
+    // Kartu invoice sudah didesain rasio 3:4 (810x1080) sehingga hasil capture otomatis penuh mengisi
+    // bingkai 3:4 tanpa perlu bingkai/margin tambahan — cukup skalakan ke resolusi output yang nyaman dibaca.
+    const targetWidth=1080;
+    const scale=targetWidth/810;
     const canvas=await html2canvas(holder.firstElementChild,{scale,backgroundColor:'#ffffff'});
+
     const dataUrl=canvas.toDataURL('image/jpeg',0.92);
     const a=document.createElement('a');
     a.href=dataUrl; a.download=`${inv.number||'invoice'}.jpg`;

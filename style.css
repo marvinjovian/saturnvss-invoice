@@ -116,13 +116,13 @@ input,select,textarea{font-family:inherit;}
 }
 
 /* ===== Invoice paper (dipakai untuk render gambar) ===== */
-.invoice-paper{background:#fff; color:#2f1e26; width:760px; border-radius:16px; overflow:hidden;}
-.inv-header{background:linear-gradient(120deg,#F7C9DC,#FBDCE6); padding:34px 36px 26px; position:relative; overflow:hidden;}
+.invoice-paper{background:#fff; color:#2f1e26; width:810px; min-height:1080px; border-radius:16px; overflow:hidden; display:flex; flex-direction:column;}
+.inv-header{background:linear-gradient(120deg,#F7C9DC,#FBDCE6); padding:34px 36px 26px; position:relative; overflow:hidden; flex-shrink:0;}
 .inv-header .lily{position:absolute; opacity:.22; color:#C24A79; top:-10px; right:10px;}
 .inv-header .brandname{font-family:'Playfair Display',serif; font-size:27px; font-weight:700; letter-spacing:.03em; color:#8f2f57;}
 .inv-header .brandsub{font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:#9c4d6b; margin-top:4px;}
 .inv-title{font-family:'Playfair Display',serif; font-size:33px; font-weight:700; text-align:right; color:#8f2f57;}
-.inv-body{padding:30px 36px;}
+.inv-body{padding:36px 40px; flex:1; display:flex; flex-direction:column;}
 .inv-meta{display:flex; justify-content:space-between; gap:20px; margin-bottom:26px;}
 .inv-meta .block .lbl{font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; color:#8c6371; margin-bottom:6px; font-weight:600;}
 .inv-meta .block .val{font-size:17.5px; line-height:1.65;}
@@ -135,7 +135,7 @@ input,select,textarea{font-family:inherit;}
 .inv-totals .row.total{border-top:2px solid #E8AFC6; margin-top:6px; padding-top:12px; font-size:21px; font-weight:700; color:#8f2f57; font-family:'Playfair Display',serif;}
 .inv-pay{margin-top:26px; background:#FCE3EC; border-radius:12px; padding:16px 18px;}
 .inv-pay .lbl{font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:#8c6371; font-weight:600; margin-bottom:8px;}
-.inv-signature{margin-top:26px; display:flex; flex-direction:column; align-items:flex-end; text-align:right;}
+.inv-signature{margin-top:auto; padding-top:26px; display:flex; flex-direction:column; align-items:flex-end; text-align:right;}
 .inv-signature img{width:130px; height:auto; display:block; object-fit:contain;}
 .inv-signature .sig-name{font-family:'Playfair Display',serif; font-size:16px; font-weight:600; color:#5a3d47; margin-top:2px; padding-top:6px; border-top:1px solid #D89DB3; min-width:120px;}
-.inv-footer{text-align:center; padding:22px; font-size:15.5px; color:#9c4d6b; border-top:1px solid #F1D3DF; font-style:italic;}
+.inv-footer{text-align:center; padding:22px; font-size:15.5px; color:#9c4d6b; border-top:1px solid #F1D3DF; font-style:italic; flex-shrink:0;}
